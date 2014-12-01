@@ -1,21 +1,24 @@
- var app = angular.module("eSearch");
+ var app = angular.module('e',[]);
 
 
-function createUrl(query, key)
+function createUrl(query)
 {
+  var key = 'x6dhc4zsjb67bh6fqagzhp39';
    var url = 'http://walmartlabs.api.mashery.com/v1/search?query='+query+'&format=json&apiKey='+key;
+return url;
+
 }
 
-var key = 'x6dhc4zsjb67bh6fqagzhp39';
+
 
 app.controller("searchController", function($scope, $http){
 	 	
-	 var query = $scope.query;
+	
   
   
 	$scope.click = function(){
-	 alert("test");
-	 $http.get(createUrl).
+	 alert(createUrl($scope.query));
+	 $http.get(createUrl($scope.query)).
      success(function(data) {
        $scope.walmart_result = data;
        
